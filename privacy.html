@@ -41,15 +41,19 @@ with your information.</p>
   <li>There is <strong>no account</strong> and no sign-in.</li>
   <li>Scanning, text recognition, file naming, and summaries run
       <strong>on your device</strong> by default. Nothing is uploaded.</li>
-  <li>One <strong>optional</strong> feature (&ldquo;Summarize with Claude&rdquo;)
-      sends the recognized <em>text</em> of a document to Anthropic, and only if
-      you turn it on and supply your own Anthropic API key.</li>
+  <li>Two <strong>optional</strong> features send data to Anthropic, and only if
+      you turn them on and supply your own Anthropic API key:
+      &ldquo;Summarize with Claude&rdquo; sends the recognized <em>text</em> of a
+      scanned document; &ldquo;Photo Notes&rdquo; sends a <em>photo you
+      capture</em> so it can be read and structured.</li>
 </ul>
 
 <h2>What the app accesses on your device</h2>
-<p><strong>Camera</strong> — used only while you are scanning a document, to
-capture the pages. The captured images are processed on your device and are
-never sent anywhere by the app.</p>
+<p><strong>Camera</strong> — used to scan documents and, if you enable Photo
+Notes, to take photos of whiteboards or handwritten notes. Document scans are
+processed on your device and are never sent anywhere by the app; Photo Notes
+captures are sent to Anthropic only when you have turned that feature on (see
+below).</p>
 <p><strong>Your documents and PDFs</strong> — scans, imported PDFs, and the PDFs
 the app creates are stored locally on your device. The in-app History is kept in
 the app&rsquo;s private storage, protected by iOS file protection, and is
@@ -79,6 +83,26 @@ and enter your own Anthropic API key:</p>
       (<a href="https://www.anthropic.com/legal">anthropic.com/legal</a>).</li>
 </ul>
 <p>You can turn the feature off, or remove your key, in Settings at any time.</p>
+
+<h2>Optional feature: &ldquo;Photo Notes&rdquo;</h2>
+<p>This feature is <strong>off by default</strong>. When you enable it in
+Settings and enter your own Anthropic API key, a &ldquo;Photo Notes&rdquo; button
+appears on the home screen for capturing a whiteboard, a handwritten page, or a
+sketch. When you use it:</p>
+<ul>
+  <li>The <strong>photo you capture is sent</strong> over HTTPS to
+      Anthropic&rsquo;s API (<code>api.anthropic.com</code>), downscaled, so
+      Claude can transcribe and structure what is written on it. This is
+      different from Document scanning, where images never leave the device.</li>
+  <li>Nothing is sent unless you take a photo in this mode.</li>
+  <li>Requests go directly from your device to Anthropic. The developer operates
+      no server and never receives your photos or your key.</li>
+  <li>Anthropic&rsquo;s handling of that image is governed by your agreement with
+      Anthropic and their privacy policy and commercial terms
+      (<a href="https://www.anthropic.com/legal">anthropic.com/legal</a>).</li>
+</ul>
+<p>Turn the feature off in Settings to remove the button and stop any image from
+being sent.</p>
 
 <h2>Data the developer collects</h2>
 <p>None. Cabinet Scan has no backend service. The developer does not receive
