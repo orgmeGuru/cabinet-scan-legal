@@ -12,11 +12,15 @@
   }
   h1 { font-size: 1.9rem; line-height: 1.2; margin: 0 0 .25rem; }
   h2 { font-size: 1.2rem; margin: 2.25rem 0 .5rem; }
+  h3 { font-size: 1.02rem; margin: 1.5rem 0 .4rem; }
   .updated { color: #6b6b70; margin: 0 0 2rem; font-size: .95rem; }
   ul { padding-left: 1.25rem; }
   li { margin: .35rem 0; }
   code { font-size: .9em; background: rgba(127,127,127,.15); padding: .1em .35em; border-radius: 4px; }
   a { color: #0a63c9; }
+  table { border-collapse: collapse; margin: .9rem 0; font-size: .95rem; }
+  th, td { border: 1px solid rgba(127,127,127,.3); padding: .45rem .65rem; text-align: left; vertical-align: top; }
+  th { background: rgba(127,127,127,.1); }
   footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(127,127,127,.25); color: #6b6b70; font-size: .9rem; }
   @media (prefers-color-scheme: dark) {
     body { color: #e6e6ea; background: #1c1c1e; }
@@ -27,87 +31,144 @@
 </head>
 <body>
 <h1>Cabinet Scan — Privacy Policy</h1>
-<p class="updated">Last updated: 2026-08-28</p>
+<p class="updated">Last updated: 2026-09-03</p>
 
-<p>Cabinet Scan is a document scanner for iPhone. It is built to keep your
-documents on your device. This policy explains what the app does and does not do
-with your information.</p>
+<p>Cabinet Scan is a document organiser for iPhone. It is built to keep your
+documents on your device. One <strong>optional</strong> setting — &ldquo;Use AI
+analysis&rdquo; — sends some of your information to a service the developer runs,
+so that documents can be summarised, connected into a picture, and asked
+questions about. This policy explains exactly what is and isn&rsquo;t sent, and
+what happens to it.</p>
 
 <h2>Summary</h2>
 <ul>
-  <li>The developer does <strong>not</strong> collect, store, or receive any of
-      your data. There are no analytics, no advertising, and no third-party
-      trackers.</li>
   <li>There is <strong>no account</strong> and no sign-in.</li>
-  <li>Scanning, text recognition, file naming, and summaries run
-      <strong>on your device</strong> by default. Nothing is uploaded.</li>
-  <li>Two <strong>optional</strong> features send data to Anthropic, and only if
-      you turn them on and supply your own Anthropic API key:
-      &ldquo;Summarize with Claude&rdquo; sends the recognized <em>text</em> of a
-      scanned document; &ldquo;Photo Notes&rdquo; sends a <em>photo you
-      capture</em> so it can be read and structured.</li>
+  <li>Scanning, text recognition, file naming, and a basic &ldquo;key
+      facts&rdquo; card run <strong>on your device</strong> and never leave it.</li>
+  <li><strong>&ldquo;Use AI analysis&rdquo; is off by default.</strong> While it
+      is off, nothing about your documents is uploaded, and the LifeGraph, Ask
+      and the &ldquo;For you&rdquo; feed are not available.</li>
+  <li>When you turn it on, the developer&rsquo;s analysis service (hosted on
+      Google Cloud in the <strong>European Union</strong>) receives, over HTTPS:
+      <ul>
+        <li>the <strong>recognised text</strong> of documents you scan, import,
+            or write as a note — to produce a name, summary and filing area;</li>
+        <li>your <strong>LifeGraph, a short index of your documents, and your
+            open to-dos</strong> — to answer questions (Ask), power the domain
+            experts, and produce the &ldquo;For you&rdquo; review;</li>
+        <li>for <strong>Photo Notes</strong> (a further opt-in that only appears
+            when AI analysis is on): the <strong>photo you capture</strong>, so
+            it can be transcribed.</li>
+      </ul></li>
+  <li>The service uses <strong>Microsoft Azure OpenAI</strong> as the language
+      model and keeps <strong>no copy</strong> of your documents, graph, answers
+      or photos. It logs only operational metadata (a random per-install ID,
+      which feature ran, and text size) for load and cost, kept up to ~90
+      days.</li>
+  <li>No advertising, no third-party trackers, no cross-app tracking.</li>
 </ul>
 
-<h2>What the app accesses on your device</h2>
-<p><strong>Camera</strong> — used to scan documents and, if you enable Photo
-Notes, to take photos of whiteboards or handwritten notes. Document scans are
-processed on your device and are never sent anywhere by the app; Photo Notes
-captures are sent to Anthropic only when you have turned that feature on (see
-below).</p>
-<p><strong>Your documents and PDFs</strong> — scans, imported PDFs, and the PDFs
-the app creates are stored locally on your device. The in-app History is kept in
-the app&rsquo;s private storage, protected by iOS file protection, and is
-<strong>excluded from device and iCloud backups</strong>. You can delete any
-History entry at any time; deleting the app removes all of it.</p>
-<p><strong>Files / folders you choose</strong> — if you pick a destination folder
-(for example a folder inside Google Drive), finished PDFs are copied into it
-using the standard iOS file system. From that point the copy is governed by
-whatever service owns that folder and its own privacy policy. Cabinet Scan does
-not use any Google API and has no access to your Google account.</p>
+<h2>What runs on your device</h2>
+<p><strong>Camera</strong> — used to scan documents, and (if you enable Photo
+Notes) to photograph a whiteboard or a page of notes. <strong>Document scans are
+processed on your device and are never sent anywhere.</strong> Photo Notes
+captures are sent to the analysis service only when that feature is on and you
+take a photo in it.</p>
+<p><strong>Text recognition</strong> — Apple&rsquo;s on-device Vision OCR
+(English and German), entirely offline.</p>
+<p><strong>Your documents, PDFs and notes</strong> — scans, imported PDFs, PDFs
+the app creates, and hand-written notes (stored as editable text files) live in
+the app&rsquo;s storage on your device and, for the History, are protected by iOS
+file protection and <strong>excluded from device and iCloud backups</strong>.
+Delete any entry at any time; deleting the app removes all of it.
+&ldquo;Erase everything&rdquo; in Settings removes every document, the LifeGraph
+and all to-dos in one step.</p>
+<p><strong>Your LifeGraph</strong> — the connected picture of people,
+organisations, addresses, accounts, policies, vehicles and agreements drawn from
+your documents is <strong>assembled and stored on your iPhone</strong>. Building
+or updating it requires &ldquo;Use AI analysis&rdquo; (see below); once built it
+stays on the device.</p>
+<p><strong>A folder you choose</strong> — if you pick a destination folder (for
+example one in iCloud Drive or Google Drive), finished PDFs and notes are copied
+there using the standard iOS file provider. From that point the copy is governed
+by whoever runs that folder and their own privacy policy. Cabinet Scan uses no
+Google API and has no access to your Google account.</p>
 
-<h2>Optional cloud feature: &ldquo;Summarize with Claude&rdquo;</h2>
-<p>This feature is <strong>off by default</strong>. If you enable it in Settings
-and enter your own Anthropic API key:</p>
+<h2>Optional: &ldquo;Use AI analysis&rdquo;</h2>
+<p>This setting is <strong>off by default</strong>. Turning it on in Settings
+enables written summaries, the LifeGraph, Ask, the domain experts, and the
+&ldquo;For you&rdquo; feed, and sends data to <strong>Cabinet Scan&rsquo;s
+analysis service</strong>, which the developer operates on <strong>Google Cloud
+Run in the European Union</strong>. Specifically:</p>
+
+<table>
+  <tr><th>Feature</th><th>What is sent</th></tr>
+  <tr><td>Naming &amp; summaries</td><td>the <strong>recognised text</strong> of a scanned or imported document, or the text of a note you write. Page images are <strong>not</strong> sent.</td></tr>
+  <tr><td>Photo Notes</td><td>the <strong>photo you capture</strong>, downscaled. Only when you take a photo in this mode. This is the one mode where an image leaves the device.</td></tr>
+  <tr><td>LifeGraph</td><td>the recognised text of each new document, plus a label-only list of entities already in your graph, so the same person or company is recognised across documents.</td></tr>
+  <tr><td>Ask &amp; domain experts</td><td>your <strong>LifeGraph</strong> (entities, relationships, obligations, events — names, addresses, amounts, dates, reference numbers), a <strong>compact index of your documents</strong> (name, type, date, area, a short summary), your <strong>open to-dos</strong>, and your question.</td></tr>
+  <tr><td>&ldquo;For you&rdquo; review</td><td>the same LifeGraph, document index and to-dos, plus today&rsquo;s date.</td></tr>
+</table>
+
+<p>The <strong>domain experts</strong> additionally run <strong>web
+searches</strong> to ground their answers. These searches use <strong>general
+terms only</strong> — your name, address, employer, amounts, IBANs and reference
+numbers are never placed in a search query.</p>
+
+<h3>What the service does and does not keep</h3>
 <ul>
-  <li>The <strong>recognized text</strong> of a document you scan or import is
-      sent over HTTPS to Anthropic&rsquo;s API (<code>api.anthropic.com</code>)
-      to generate a file name and a summary.</li>
-  <li>The <strong>page images are never sent</strong> — only text.</li>
-  <li>Your API key is stored in the <strong>iOS Keychain</strong> on your device
-      and is used only to authenticate these requests. It is not transmitted
-      anywhere else.</li>
-  <li>Requests are made directly from your device to Anthropic. The developer
-      operates no server and never receives your documents, text, or key.</li>
-  <li>Anthropic&rsquo;s handling of that text is governed by your agreement with
-      Anthropic and their privacy policy and commercial terms
-      (<a href="https://www.anthropic.com/legal">anthropic.com/legal</a>).</li>
+  <li>The service has <strong>no account</strong> and does <strong>not
+      persist</strong> your documents, OCR text, LifeGraph, answers, or Photo
+      Notes images. It holds your Ask / &ldquo;For you&rdquo; context
+      <strong>briefly in memory</strong> (a small cache, lost when the service
+      restarts) so a follow-up question does not have to re-upload
+      everything.</li>
+  <li><strong>Operational logs.</strong> Each request is logged with: a
+      <strong>random per-install identifier</strong> (a UUID generated on your
+      device — not your name, email, phone number or Apple ID), which endpoint
+      was called, the AI model used, and the number of text tokens processed.
+      <strong>No document content, OCR text, images, graph data, questions or
+      answers appear in these logs.</strong> They are used to understand load and
+      running cost. Logs are stored on Google Cloud (EU) and deleted after about
+      90 days.</li>
 </ul>
-<p>You can turn the feature off, or remove your key, in Settings at any time.</p>
 
-<h2>Optional feature: &ldquo;Photo Notes&rdquo;</h2>
-<p>This feature is <strong>off by default</strong>. When you enable it in
-Settings and enter your own Anthropic API key, a &ldquo;Photo Notes&rdquo; button
-appears on the home screen for capturing a whiteboard, a handwritten page, or a
-sketch. When you use it:</p>
+<h3>Sub-processors</h3>
 <ul>
-  <li>The <strong>photo you capture is sent</strong> over HTTPS to
-      Anthropic&rsquo;s API (<code>api.anthropic.com</code>), downscaled, so
-      Claude can transcribe and structure what is written on it. This is
-      different from Document scanning, where images never leave the device.</li>
-  <li>Nothing is sent unless you take a photo in this mode.</li>
-  <li>Requests go directly from your device to Anthropic. The developer operates
-      no server and never receives your photos or your key.</li>
-  <li>Anthropic&rsquo;s handling of that image is governed by your agreement with
-      Anthropic and their privacy policy and commercial terms
-      (<a href="https://www.anthropic.com/legal">anthropic.com/legal</a>).</li>
+  <li><strong>Google LLC / Google Cloud Platform</strong> — hosting (Cloud Run)
+      and the operational logs above, in the European Union.</li>
+  <li><strong>Microsoft Corporation / Azure OpenAI Service</strong> — the
+      language model that produces names, summaries, the LifeGraph and answers.
+      Text and images sent to the model are processed to generate the response
+      and, under Azure OpenAI&rsquo;s terms, are <strong>not used to train
+      models</strong>.</li>
 </ul>
-<p>Turn the feature off in Settings to remove the button and stop any image from
-being sent.</p>
 
-<h2>Data the developer collects</h2>
-<p>None. Cabinet Scan has no backend service. The developer does not receive
-usage data, crash logs, document contents, or any personal information from the
-app.</p>
+<h2>Legal basis and your rights (GDPR / DSGVO)</h2>
+<p>For the optional analysis service the developer is the <strong>data
+controller</strong>. The legal basis for processing is your
+<strong>consent</strong>, given by turning &ldquo;Use AI analysis&rdquo; on, and
+performance of the service you asked for. Processing takes place in the
+<strong>European Union</strong> on Google Cloud; the Azure OpenAI region is set
+by the developer&rsquo;s Azure resource.</p>
+<ul>
+  <li><strong>Withdraw consent</strong> at any time by turning &ldquo;Use AI
+      analysis&rdquo; off in Settings. Nothing further is sent.</li>
+  <li><strong>Access / erasure.</strong> The service keeps no documents or
+      answers to return or erase. The only record tied to you is the operational
+      log line keyed to your random install identifier; it contains no content
+      and is automatically deleted after ~90 days. Because that identifier is not
+      otherwise linked to your identity, targeted deletion before then may not be
+      possible.</li>
+  <li><strong>Everything on the device</strong> is under your control — delete
+      individual entries, or use &ldquo;Erase everything&rdquo;.</li>
+</ul>
+
+<h2>No tracking</h2>
+<p>No analytics SDKs, no advertising, no third-party trackers, and no linking of
+your activity to data from other apps or websites. The per-install identifier
+described above is used only for first-party load and cost measurement of the
+optional service.</p>
 
 <h2>Children</h2>
 <p>Cabinet Scan is not directed at children and does not knowingly collect
@@ -118,7 +179,8 @@ information from anyone.</p>
 new &ldquo;last updated&rdquo; date.</p>
 
 <h2>Contact</h2>
-<p>Questions about this policy: <a href="mailto:vsr.veera@gmail.com">vsr.veera@gmail.com</a></p>
+<p>Questions about this policy, or requests concerning the optional analysis
+service: <a href="mailto:vsr.veera@gmail.com">vsr.veera@gmail.com</a></p>
 
 <footer>Cabinet Scan for iPhone.</footer>
 </body>
