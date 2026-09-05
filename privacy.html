@@ -31,14 +31,15 @@
 </head>
 <body>
 <h1>Cabinet Scan — Privacy Policy</h1>
-<p class="updated">Last updated: 2026-09-04</p>
+<p class="updated">Last updated: 2026-09-05</p>
 
 <p>Cabinet Scan is a document organiser for iPhone. It is built to keep your
-documents on your device. One <strong>optional</strong> setting — &ldquo;Use AI
-analysis&rdquo; — sends some of your information to a service the developer runs,
-so that documents can be summarised, connected into a picture, and asked
-questions about. This policy explains exactly what is and isn&rsquo;t sent, and
-what happens to it.</p>
+documents on your device. Two <strong>optional</strong>, independent settings can
+send data off the device: &ldquo;Use AI analysis&rdquo; (for summaries, the
+LifeGraph and Ask) and &ldquo;Cloud Sync&rdquo; (an account that backs your
+documents up and syncs them to your other devices and the web). Both are off by
+default. This policy explains exactly what each one sends and what happens to
+it.</p>
 
 <h2>Who is responsible (controller)</h2>
 <p>Venkata Veeravasarapu, Industriehof 3, 60487 Frankfurt am Main, Germany.
@@ -48,9 +49,17 @@ Data Protection Officer; the controller can be reached at the address above.</p>
 
 <h2>Summary</h2>
 <ul>
-  <li>There is <strong>no account</strong> and no sign-in.</li>
+  <li>By default there is <strong>no account</strong> and no sign-in, and
+      nothing about your documents leaves the device.</li>
   <li>Scanning, text recognition, file naming, and a basic &ldquo;key
       facts&rdquo; card run <strong>on your device</strong> and never leave it.</li>
+  <li><strong>&ldquo;Cloud Sync&rdquo; is off by default.</strong> Turn it on and
+      you create an email + password account (Firebase Authentication, identity
+      store in the US); your documents, their details and your LifeGraph are then
+      backed up to the developer&rsquo;s private Google Firebase storage in the
+      <strong>EU</strong>, readable only by your account, so they sync to your
+      other devices and the web. Delete the account in Settings to erase all of
+      it. Full detail below.</li>
   <li><strong>&ldquo;Use AI analysis&rdquo; is off by default.</strong> While it
       is off, nothing about your documents is uploaded, and the LifeGraph, Ask
       and the &ldquo;For you&rdquo; feed are not available.</li>
@@ -156,12 +165,14 @@ numbers are never placed in a search query.</p>
 </ul>
 
 <h2>Legal basis and your rights (GDPR / DSGVO)</h2>
-<p>For the optional analysis service the developer is the <strong>data
-controller</strong>. The legal basis for processing is your
-<strong>consent</strong>, given by turning &ldquo;Use AI analysis&rdquo; on, and
-performance of the service you asked for. Processing takes place in the
-<strong>European Union</strong> on Google Cloud; the Azure OpenAI region is set
-by the developer&rsquo;s Azure resource.</p>
+<p>For the optional analysis service and for Cloud Sync the developer is the
+<strong>data controller</strong>. The legal basis is your
+<strong>consent</strong>, given by turning the relevant setting on (and, for
+Cloud Sync, creating an account), together with performance of the service you
+asked for. Analysis processing takes place in the <strong>European Union</strong>
+on Google Cloud (the Azure OpenAI region is set by the developer&rsquo;s Azure
+resource); Cloud Sync document storage is in the EU, with the account identity
+store in the US (see the Cloud Sync section above).</p>
 <p>Under the GDPR you have the rights of access (Art. 15), rectification
 (Art. 16), erasure (Art. 17), restriction (Art. 18), data portability (Art. 20)
 and objection (Art. 21), and the right to withdraw consent at any time
@@ -169,12 +180,15 @@ and objection (Art. 21), and the right to withdraw consent at any time
 <ul>
   <li><strong>Withdraw consent</strong> at any time by turning &ldquo;Use AI
       analysis&rdquo; off in Settings. Nothing further is sent.</li>
-  <li><strong>Access / erasure / portability.</strong> The service keeps no
-      documents or answers to return, export or erase. The only record tied to
-      you is the operational log line keyed to your random install identifier; it
-      contains no content and is automatically deleted after ~90 days. Because
-      that identifier is not otherwise linked to your identity, targeted deletion
-      before then may not be possible.</li>
+  <li><strong>Access / erasure / portability.</strong> The <em>analysis</em>
+      service keeps no documents or answers to return, export or erase — only an
+      operational log line keyed to a random install identifier, auto-deleted
+      after ~90 days and not otherwise linked to you. If you use <strong>Cloud
+      Sync</strong>, the data held under your account <em>can</em> be returned,
+      exported (&ldquo;Export everything&rdquo; produces a full copy on the
+      device) and erased: use <em>Delete account</em> in Settings, which removes
+      your Firebase Authentication user and all your Firestore and Storage data,
+      or email <a href="mailto:support@orgme.guru">support@orgme.guru</a>.</li>
   <li><strong>Everything on the device</strong> is under your control — delete
       individual entries, or use &ldquo;Erase everything&rdquo;.</li>
   <li>To exercise any of these rights, contact
@@ -222,6 +236,57 @@ and load <strong>no fonts, scripts, images or other content from third-party
 servers</strong> &mdash; everything is served from each page&rsquo;s own origin.
 No consent banner is required because nothing beyond what is strictly necessary
 to deliver the page is stored on or read from your device.</p>
+
+<h2>Optional: &ldquo;Cloud Sync&rdquo; (an account)</h2>
+<p>This setting is <strong>off by default</strong> and separate from &ldquo;Use
+AI analysis&rdquo;. Without it, Cabinet Scan has no account and stores nothing
+about you off your device. Turn it on and:</p>
+<ul>
+  <li>You <strong>create an account with an email address and password</strong>.
+      Authentication is handled by <strong>Google&rsquo;s Firebase
+      Authentication</strong>. Your email address and a salted hash of your
+      password (Firebase never receives or stores the password itself in the
+      clear) are held by Google; this identity store is operated in the
+      <strong>United States</strong>. You must confirm your email address before
+      sync will run.</li>
+  <li>Your <strong>documents and hand-written notes</strong> (the files
+      themselves), their <strong>details</strong> (name, summary, recognised
+      text, dates, filing area, to-dos) and your assembled <strong>LifeGraph</strong>
+      are uploaded to the developer&rsquo;s private storage on
+      <strong>Google Firebase</strong> &mdash; the Firestore database and the
+      Cloud Storage bucket are both located in the <strong>European Union</strong>
+      (<em>eur3</em> multi-region / Frankfurt). They are readable only by your
+      own signed-in account, enforced by server-side security rules.</li>
+  <li>The purpose is <strong>backup and access from your other devices and the
+      web</strong>. Each device pushes its copy up and pulls the others&rsquo;
+      changes; the developer does not use this data for any other purpose and it
+      is not shared, sold, or used for advertising or analytics.</li>
+  <li><strong>Scans are not re-encrypted end-to-end</strong> in this version:
+      the developer, as operator of the Firebase project, technically has the
+      ability to access stored content, and does so only where necessary to run
+      or support the service. Google stores it encrypted at rest and in
+      transit.</li>
+</ul>
+<p><strong>Legal basis:</strong> your <strong>consent</strong> (Art. 6(1)(a)
+GDPR), given by turning Cloud Sync on and creating an account, together with
+performance of the service you asked for (Art. 6(1)(b)). Withdraw it any time
+by signing out or turning Cloud Sync off.</p>
+<p><strong>Deleting your account and cloud data.</strong> Settings &rarr; Cloud
+Sync &rarr; <em>Delete account</em> permanently removes your Firebase
+Authentication user <strong>and</strong> everything stored under your account in
+Firestore and Cloud Storage. Documents on the device itself are not affected by
+that action; use &ldquo;Erase everything&rdquo; for those. You can also request
+deletion by email at
+<a href="mailto:support@orgme.guru">support@orgme.guru</a>.</p>
+<p><strong>Retention:</strong> cloud data is kept until you delete it or your
+account. Daily backups of the database are kept for 7 days and then discarded.
+Deleted content is removed from live storage immediately and purged from
+backups within that window.</p>
+<p><strong>Sub-processor:</strong> <strong>Google LLC</strong> / Google Firebase
+(Authentication, Firestore, Cloud Storage, App Check). Google is a US company;
+the document data is stored in the EU, the authentication identity store in the
+US; transfers rely on the Google Cloud Data Processing Addendum, its Standard
+Contractual Clauses and EU&ndash;US Data Privacy Framework certification.</p>
 
 <h2>Children</h2>
 <p>Cabinet Scan is not directed at children and does not knowingly collect
